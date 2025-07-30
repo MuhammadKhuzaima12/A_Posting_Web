@@ -1,4 +1,4 @@
-# ✨ Spark - Ignite Your Creativity
+# ✨ Spark - Sharing light through words
 
 **"Where Ideas Catch Fire"** 🔥
 
