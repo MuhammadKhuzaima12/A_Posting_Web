@@ -1,8 +1,9 @@
 const post_textarea = document.getElementById("post_textarea");
 let currentBackground = null;
 
-function set_bg() {
-  currentBackground = event.target.id;
+function set_bg(event) {
+  const imgElement = event.currentTarget; // Always gives the element with the handler
+  currentBackground = imgElement.id;
   post_textarea.style.backgroundImage = `url('./assets/${currentBackground}.jpeg')`;
 };
 
@@ -11,7 +12,11 @@ function create_post() {
   let post_user_name = document.getElementById("username_input").value.trim();
   const post_content = post_textarea.value;
   let post_id = Date.now();
-  const bgStyle = currentBackground ? `style="background-image: url('./assets/${currentBackground}.jpeg')"` : ''
+
+  let bgStyle = "";
+  if (currentBackground) {
+    bgStyle = `style="background-image:url('./assets/${currentBackground}.jpeg');"`;
+  }
 
   if (!post_content) {
     alert("Please write something before posting!");
@@ -46,8 +51,9 @@ function create_post() {
               <div class="comment-section">
                 <input
                   type="text"
+                  class="comment_name_input"
                   name="comment_name_input_${post_id}"
-                  id="comment_name_input"
+                  id="comment_name_input_${post_id}"
                   placeholder="Enter your Name"
                 />
                 <textarea
@@ -93,7 +99,7 @@ function change_like_icon(post_id) {
 
 function comment_sec(post_id) {
   const post_i = document.getElementById(`post_${post_id}`);
-  let comment_user_name = document.getElementById(`comment_name_input_${post_id}`);
+  let comment_user_name = document.getElementById(`comment_name_input_${post_id}`).value.trim();
   const comment_content = document.getElementById(`comment_textarea_${post_id}`).value.trim();
 
   if (!comment_content) {
