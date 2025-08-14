@@ -21,8 +21,3 @@ A vibrant web application that lets you create stunning social media posts with 
 - **Icons**: [Font Awesome](https://fontawesome.com/)
 - **Design**: Custom CSS with vibrant variables
 
-## Quick Start
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/spark.git
